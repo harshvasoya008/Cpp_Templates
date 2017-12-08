@@ -1,5 +1,5 @@
 //
-// Created by Harsh_Vasoya on 30-09-2017.
+// Author: Harsh_Vasoya, DA-IICT
 //
 
 #include<bits/stdc++.h>
