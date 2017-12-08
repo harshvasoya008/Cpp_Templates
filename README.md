@@ -1,2 +1,0 @@
-# test
-Learning purpose
