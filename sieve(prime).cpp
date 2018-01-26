@@ -1,4 +1,5 @@
-void sieve(vector<int> &prime){
+vector<int> prime;
+void sieve(){
 	
 	//complexity: O(nlog(logn))
 	

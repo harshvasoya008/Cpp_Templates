@@ -11,12 +11,12 @@ for (int i = 0; i < 1000; ++i) {
 		int x = i + row[k];
 		int y = j + col[k];
 		if (isValid(x,y,1000))
-		hs.insert(Grundy[x][y]);
+			hs.insert(Grundy[x][y]);
 		}
 		
 		int Mex=0;
 		while (hs.find(Mex)!=hs.end())
-		Mex++;
+			Mex++;
 		Grundy[i][j]=Mex;
 	}
 }

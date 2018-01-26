@@ -1,6 +1,6 @@
-void factorise(map<int,int> &Map, vector<int> &prime, int n){
+void factorise(unordered_map<int,int> &Map, int n){
 	int num=n;
-	for(int i=0;prime[i]<=num;i++){
+	for(int i=0;i<prime.size() && prime[i]<=num;i++){
     	
 		int j = lower_bound(all(prime),num)-prime.begin();
     	if(j!=prime.size() && prime[j]==num){
