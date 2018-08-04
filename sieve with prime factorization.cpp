@@ -1,8 +1,7 @@
 vector<int> prime;
 unordered_map<int,int> *fac;
 void sieve(int N){	
-	bool *isp=new bool[N]();
-	memset(isp,false,N);
+	unordered_map<int,bool> isp;
 
 	for(int z=2;z<=N;z++)
 	{

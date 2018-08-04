@@ -1,5 +1,7 @@
 void bfs(int u){
 	queue<int> q;
+	hashmap<int,bool> vis;
+	
 	q.push(u);
 	vis[u]=true;
 	

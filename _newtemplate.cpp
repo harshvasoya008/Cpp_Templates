@@ -30,14 +30,16 @@ int DEBUG = 0;
 
 using namespace std;
 
-template<class T1,class T2>ostream&operator<<(ostream& os,const pair<T1,T2>&p){os<<"["<<p.first<<","<<p.second<<"]";return os;}
-template<class T>ostream&operator<<(ostream& os,const vector<T>&v){os << "[";bool first=true;for (T it:v){if (!first)os<<", ";first = false;os<<it;}os<<"]";return os;}
-template<class T>ostream&operator<<(ostream& os,set<T>&v){os<<"[";bool first=true;for (T it:v){if(!first)os<<", ";first=false;os<<it;}os<<"]";return os;}
-template<class T>ostream&operator<<(ostream& os,unordered_set<T>&v){os<<"[";bool first=true;for (T it:v){if(!first)os<<", ";first=false;os<<it;}os<<"]";return os;}
-template<class T1,class T2>ostream&operator<<(ostream& os,map<T1,T2>&v){os<<"[";bool first=true;for(pair<T1,T2> it:v){if(!first)os<<", ";first=false;os<<"("<<it.F<<","<<it.S<<")";}os<<"]";return os;}
-template<class T1,class T2>ostream&operator<<(ostream& os,unordered_map<T1,T2>&v){os<<"[";bool first=true;for(pair<T1,T2> it:v){if(!first)os<<", ";first=false;os<<"("<<it.F<<","<<it.S<<")";}os<<"]";return os;}
-template<class T>ostream&operator<<(ostream& os,priority_queue<T>&pq){vector<T> temp;os<<"[";while(!pq.empty()){os<<pq.top();temp.pb(pq.top());pq.pop();if(!pq.empty())os<<", ";}os<<"]"<<endl;for(int i=0;i<temp.size();i++)pq.push(temp[i]);return os;}
-void debug(int arr[],int n){cout<<("[");forn(i,0,n){cout<<(arr[i]);if(i!=n-1) cout<<(", ");}cout<<("]\n");}
+/*p */ template<class T1,class T2>ostream&operator<<(ostream& os,const pair<T1,T2>&p){os<<"["<<p.first<<","<<p.second<<"]";return os;}
+/*v */ template<class T>ostream&operator<<(ostream& os,const vector<T>&v){os << "[";bool first=true;for (T it:v){if (!first)os<<", ";first = false;os<<it;}os<<"]";return os;}
+/*s */ template<class T>ostream&operator<<(ostream& os,set<T>&v){os<<"[";bool first=true;for (T it:v){if(!first)os<<", ";first=false;os<<it;}os<<"]";return os;}
+/*hs*/ template<class T>ostream&operator<<(ostream& os,unordered_set<T>&v){os<<"[";bool first=true;for (T it:v){if(!first)os<<", ";first=false;os<<it;}os<<"]";return os;}
+/*m */ template<class T1,class T2>ostream&operator<<(ostream& os,map<T1,T2>&v){os<<"[";bool first=true;for(pair<T1,T2> it:v){if(!first)os<<", ";first=false;os<<"("<<it.F<<","<<it.S<<")";}os<<"]"<<endl;return os;}
+/*hm*/ template<class T1,class T2>ostream&operator<<(ostream& os,unordered_map<T1,T2>&v){os<<"[";bool first=true;for(pair<T1,T2> it:v){if(!first)os<<", ";first=false;os<<"("<<it.F<<","<<it.S<<")";}os<<"]"<<endl;return os;}
+/*q */ template<class T>ostream&operator<<(ostream& os,queue<T>&q){os<<"[";bool first=true; int sz=q.size(); for(int i=0;i<sz;i++){if(!first) os<<", "; first=false; os<<q.front(); q.push(q.front()); q.pop(); }os<<"]"<<endl;}
+/*pq*/ template<class T>ostream&operator<<(ostream& os,priority_queue<T>&pq){vector<T> temp;os<<"[";while(!pq.empty()){os<<pq.top();temp.pb(pq.top());pq.pop();if(!pq.empty())os<<", ";}os<<"]"<<endl;for(int i=0;i<temp.size();i++)pq.push(temp[i]);return os;}
+void print_arr(int arr[],int n){cout<<("[");forn(i,0,n){cout<<(arr[i]);if(i!=n-1) cout<<(", ");}cout<<("]\n");}
+void cut(){if(DEBUG) cout<<"----------------------------\n"<<endl; }
 
 int bit_cnt(lli n){int c=0;while(n){if(n&1) c++;n>>=1;}return c;}
 lli gcd(lli a,lli b){while(b){lli r=a%b;a=b;b=r;}return a;}

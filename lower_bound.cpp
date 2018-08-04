@@ -10,11 +10,14 @@ using namespace std;
 
 int main()
 {
+	/* lower_bound with vectors */
 	vector<int> v = {1,2,3,5,6,6,7,10};
 	vector<int>::iterator it1 = upper_bound(all(v),6);
 	vector<int>::iterator it2 = lower_bound(all(v),6);
 	vector<int>::iterator it3 = lower_bound(all(v),8);
+	
 	int i = upper_bound(all(v),20) - v.begin();
+	
 	cout<<*it1<<endl;
 	cout<<it2-v.begin()<<endl;
 	cout<<*it3<<endl;
@@ -24,6 +27,12 @@ int main()
 	vector<pair<int,int> >::iterator it4 = upper_bound(all(a),mp(4,4));
 	cout<< it4->F <<" "<< it4->S <<endl;
 	
+	cout<<"--------------------------------------\n";
+	/* lower_bound with arrays */
+	int arr[] = {1,2,4,5,6,10};
+	int idx = lower_bound(arr,arr+3,7) - arr;
+	cout<<arr[idx]<<endl;
+
 	return 0;
 }
 

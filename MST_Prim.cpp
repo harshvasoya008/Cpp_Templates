@@ -19,7 +19,7 @@ lli Prim(int start){
 			continue;
 
 		vis[x]=true;
-		minCost += p.F;
+		minCost += (lli)p.F;
 
 		for(int i=0;i<graph[x].size();i++){
 			T z = graph[x][i];

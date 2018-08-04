@@ -4,36 +4,39 @@ void Dijkstra(int src,int n){
 	
 	int dist[n+1];
 	bool vis[n+1];
+	int parent[n+1];
 	
 	forn(i,0,n+1)
-		dist[i]=INF, vis[i]=false;
+		dist[i]=INF, vis[i]=false, parent=-1;
 	
-	private class comp{
+	/*private class comp{
 		public:
 		bool operator() (const int &lhs, const int &rhs)const{
 			return dist[lhs] > dist[rhs];
 		}
-	};
+	};*/
 	
-	priority_queue<int,vector<int>,comp> pq;
+	typedef pair<int,int> T;
+	priority_queue<T, vector<T>, greater<T>> pq;
 	
 	dist[src]=0;
-	pq.push(src);
+	pq.push({0,src});
 	
 	while(!pq.empty()){
-		int x = pq.top(); pq.pop();
-		if(vis[x])
+		int u = pq.top().S; pq.pop();
+		if(vis[u])
 			continue;
 		
-		vis[x]=true;
+		vis[u]=true;
 				
-		for(int i=0;i<graph[x].size();i++){
-			int z = graph[x][i].F;
-			int w = graph[x][i].S;
+		for(pair<int,int> p : graph[u]){
+			int v = p.F;
+			int w = p.S;
 			
-			if(!vis[z] && dist[x]+w < dist[z]){
-				dist[z] = dist[x]+w;
-				pq.push(z);
+			if(!vis[v] && dist[u]+w < dist[v]){
+				dist[v] = dist[u]+w;
+				pq.push({dist[v],v});
+				// parent[v] = u;			// To store the shortest path 
 			}
 		}
 	}

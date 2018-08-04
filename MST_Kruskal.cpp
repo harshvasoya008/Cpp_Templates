@@ -1,11 +1,12 @@
 class Kruskal{
-	
+	/* MST with complexity O(ElogV) */
+
 	class Edge{
 		public:
 		int u,v;			// end-vertices
 		int w;				// weight
 		
-		bool operator< (const Edge &other) const {
+		bool operator < (const Edge &other) const {
 			if(w!=other.w)
 				return w < other.w;
 			return u < other.u;
@@ -49,11 +50,11 @@ class Kruskal{
 			int a = findroot(x);
 			int b = findroot(y);
 			
-			if(subsize[a] < size[b]){
+			if(subsize[a] < subsize[b]){		// set A added to set B
 				parent[a] = parent[b];
 				subsize[b] += subsize[a];
 			}
-			else{
+			else{								// set B added to set A
 				parent[b] = parent[a];
 				subsize[a] += subsize[b];
 			}

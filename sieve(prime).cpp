@@ -4,7 +4,7 @@ void sieve(){
 	//complexity: O(nlog(logn))
 	
 	int N=(int)1e6;
-	bool *isp=new bool[N]();
+	vector<bool> isp(N,false);
 	
 	for(int z=2;z<=N;z++)
 	{
@@ -13,7 +13,7 @@ void sieve(){
 			prime.pb(z);
 			if(z*z>N)	continue;
 			
-			for(int j=2*z;j<=N;j+=z)
+			for(int j=z*z;j<=N;j+=z)	// <--- modified
 				isp[j]=true;
 		}
 	}

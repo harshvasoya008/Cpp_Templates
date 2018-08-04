@@ -5,6 +5,6 @@ pair<int,int> extendedEuclid(int a,int b){
 	if(!b)
 		return {1,0};
 
-	extendedEuclid(b,a%b);
-	return {y, x-(a/b)*y};
+	pair<int,int> p = extendedEuclid(b,a%b);
+	return {p.S, p.F-(a/b)*p.S};
 }

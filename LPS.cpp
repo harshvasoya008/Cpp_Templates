@@ -9,7 +9,7 @@ int computeLPSArray(string str)
     lps[0] = 0; // lps[0] is always 0
  
     // the loop calculates lps[i] for i = 1 to M-1
-    int i = 1;
+    int i = 1 
     while (i < M)
     {
         if (str[i] == str[len])
@@ -20,7 +20,7 @@ int computeLPSArray(string str)
         }
         else // (str[i] != str[len])
         {
-        	//backing until match is found
+        	// backing until match is found
             if (len != 0)
             	len = lps[len-1];
             	
